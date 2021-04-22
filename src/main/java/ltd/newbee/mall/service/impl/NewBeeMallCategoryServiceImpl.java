@@ -156,7 +156,6 @@ public class NewBeeMallCategoryServiceImpl implements NewBeeMallCategoryService 
                 searchPageCategoryVO.setThirdLevelCategoryList(thirdLevelCategories);
                 return searchPageCategoryVO;
             }
-            System.out.println();
         }
         return null;
     }

@@ -1,5 +1,4 @@
 $(function () {
-    debugger;
     $("#jqGrid").jqGrid({
         url: '/admin/users/list',
         datatype: "json",

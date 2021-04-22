@@ -8,17 +8,16 @@
  */
 package ltd.newbee.mall.dao;
 
-
-
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
+import ltd.newbee.mall.entity.GoodsDesc;
 import ltd.newbee.mall.entity.GoodsImage;
+import ltd.newbee.mall.entity.GoodsQa;
+import ltd.newbee.mall.entity.GoodsReview;
 import ltd.newbee.mall.entity.NewBeeMallGoods;
-import ltd.newbee.mall.entity.Review;
 import ltd.newbee.mall.entity.StockNumDTO;
 import ltd.newbee.mall.util.PageQueryUtil;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface NewBeeMallGoodsMapper {
     int deleteByPrimaryKey(Long goodsId);
@@ -50,11 +49,15 @@ public interface NewBeeMallGoodsMapper {
     int updateStockNum(@Param("stockNumDTOS") List<StockNumDTO> stockNumDTOS);
 
     int batchUpdateSellStatus(@Param("orderIds")Long[] orderIds,@Param("sellStatus") int sellStatus);
-
-    // added by ka 2021/02/07 add second category id search.
-    List<NewBeeMallGoods> searchGoodsBySecCategoryId(PageQueryUtil pageUtil);
-    // added by ka 2021/04/16 イメージリストを取得
-    List<GoodsImage> getImageList(Integer goodsId);
-    // added by ka 2021/04/16　レビューリストを取得
-    List<Review> getReviewList(String goodsId);
+    	
+	/*
+	 * List<NewBeeMallGoods> searchGoodsBySecCategoryId(PageQueryUtil pageUtil);
+	 * List<GoodsReview> getReviewList(String goodsId); List<GoodsImage>
+	 * getImageList(Integer goodsId);
+	 */
+    
+    List<GoodsDesc> getGoodsDescList(long goodsId);
+    List<GoodsImage> getGoodsImageList(long goodsId); 
+    List<GoodsQa> getGoodsQaList(long goodsId);
+    List<GoodsReview> getGoodsReviewList(long goodsId);
 }

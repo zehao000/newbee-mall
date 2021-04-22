@@ -8,13 +8,15 @@
  */
 package ltd.newbee.mall.service;
 
-import java.util.List;
-
+import ltd.newbee.mall.entity.GoodsDesc;
 import ltd.newbee.mall.entity.GoodsImage;
+import ltd.newbee.mall.entity.GoodsQa;
+import ltd.newbee.mall.entity.GoodsReview;
 import ltd.newbee.mall.entity.NewBeeMallGoods;
-import ltd.newbee.mall.entity.Review;
 import ltd.newbee.mall.util.PageQueryUtil;
 import ltd.newbee.mall.util.PageResult;
+
+import java.util.List;
 
 public interface NewBeeMallGoodsService {
     /**
@@ -68,20 +70,36 @@ public interface NewBeeMallGoodsService {
     /**
      * 商品搜索
      *
-     * @param pageUtil
+     * @param goodsId
      * @return
      */
     PageResult searchNewBeeMallGoods(PageQueryUtil pageUtil);
     
-    /**
-     * 商品画像リスト
-     * 2021/04/16
-     * @param goodsId
-     * @return List<GoodsImage>
-     * @author foren
-     */
-    List<GoodsImage> getImageList(Integer goodsId);
     
-    // added by ka 2021/04/16　レビューリストを取得
-    List<Review> getReviewList(String goodsId);
+ 
+    
+    
+    
+    
+    
+   
+  
+    
+   // GoodsDesc getGoodsDescEntityByGoodsId(Long goodsId); 
+    
+    
+    List<GoodsDesc> getGoodsDescEntityByGoodsId(Long goodsId); 
+
+	List<GoodsImage> getGoodsImageEntityByGoodsId(Long goodsId);
+	
+	List<GoodsQa> getGoodsQaEntityByGoodsId(Long goodsId);
+	
+
+	List<GoodsReview> getGoodsReviewEntityByGoodsId(Long goodsId);
+	
+	
+	
+    
 }
+
+

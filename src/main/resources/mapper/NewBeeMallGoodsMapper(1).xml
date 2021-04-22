@@ -402,8 +402,8 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where goods_id = #{goodsId,jdbcType=BIGINT}
   </update>
-  
-<select id="getGoodsDescList" parameterType="java.lang.Long" resultType="ltd.newbee.mall.entity.GoodsDesc">
+
+<select id="getGoodsDesc" parameterType="java.lang.Long" resultType="ltd.newbee.mall.entity.GoodsDescEntity">
 	 SELECT goods_id,
 	    color,
 	    size,
@@ -414,54 +414,5 @@
 	    warp_size
 	FROM goods_desc
 		where goods_id = #{goodsId,jdbcType=BIGINT}
-   </select>
-   <select id="getGoodsImageList" parameterType="java.lang.Long" resultType="ltd.newbee.mall.entity.GoodsImage">
-   SELECT goods_id,
-   path
-   FROM goods_image
-   where goods_id = #{goodsId,jdbcType=BIGINT}
-   </select>
-   <select id="getGoodsQaList" parameterType="java.lang.Long" resultType="ltd.newbee.mall.entity.GoodsQa">
-   SELECT 
-   id,
-   question,
-   submit_date,
-   answer,
-   answer_date,
-   helped_num,
-   goods_id
-   FROM goods_qa
-   where goods_id = #{goodsId,jdbcType=BIGINT}
-   </select>
-   <select id="getGoodsReviewList" parameterType="java.lang.Long" resultType="ltd.newbee.mall.entity.GoodsReview">
-   SELECT
-   s.id,
-   s.star,
-   s.custermer_id,
-   s.comment_date,
-   s.goods_id,
-   s.title,
-   s.content,
-   s.picture,
-   i.user_id,
-   i.nick_name,
-   a.goods_id,
-   a.goods_name,
-   a.goods_intro,
-   a.goods_category_id,
-   a.goods_cover_img,
-   a.goods_carousel,
-   a.goods_detail_content,
-   a.original_price,
-   a.selling_price,
-   a.stock_num,
-   a.tag,
-   a.goods_sell_status,
-   a.create_user,
-   a.create_time,
-   a.update_user,
-   a.update_time 
-   From goods_review as s join tb_newbee_mall_user as i on s.custermer_id=i.user_id join tb_newbee_mall_goods_info as a on s.goods_id=a.goods_id;
-   <!-- where goods_id = #{goodsId,jdbcType=BIGINT} -->
    </select>
 </mapper>
